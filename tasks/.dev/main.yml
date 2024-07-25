@@ -13,5 +13,6 @@
     line: "{{ item }}"
   become: true
   loop:
+  - "nano /etc/systemd/system/multi-user.target.wants/haproxy.service"
   - "cd {{ conf_dir }}"
   - "{{ app0_start }}"

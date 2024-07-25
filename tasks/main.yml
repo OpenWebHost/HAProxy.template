@@ -12,4 +12,4 @@
     force: yes
   become: true
   loop:
-  - test.cfg
+  - rocketchat-haproxy.cfg
