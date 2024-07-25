@@ -5,7 +5,7 @@
 # RocketChat
 app0_start: "haproxy -f {{ conf_dir }}/test.cfg"
 
-frontend0_name: rocket_chat
+frontend0_name: rocket_chat_docker
 frontend0_domain: "rocket.test"
 frontend0_port: 80
 frontend0_timeout: 60 
