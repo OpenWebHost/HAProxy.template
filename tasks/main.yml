@@ -1,0 +1,15 @@
+---
+- ansible.builtin.include_tasks:
+    file: pre.yml
+
+- name: Template a file
+  ansible.builtin.template:
+    src: "RocketChat/{{ item }}.j2"
+    dest: "{{ conf_dir }}/{{ item }}"
+    owner: bin
+    group: wheel
+    mode: '0644'
+    force: yes
+  become: true
+  loop:
+  - test.cfg

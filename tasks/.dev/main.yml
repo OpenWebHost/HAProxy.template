@@ -1,0 +1,17 @@
+---
+- name: Install dev tools
+  ansible.builtin.dnf:
+    name:
+      - nano
+    state: latest
+  become: true
+
+- name: History
+  ansible.builtin.lineinfile:
+    path: /root/.bash_history
+    regexp: '^{{ item }}'
+    line: "{{ item }}"
+  become: true
+  loop:
+  - "cd {{ conf_dir }}"
+  - "{{ app0_start }}"

@@ -1,0 +1,15 @@
+frontend {{ frontend0_name }}
+  bind :{{ frontend0_port }}
+  timeout client {{ frontend0_timeout }}s
+  mode http
+
+  # ACL for "rocket.test"
+  acl ACL_rocket.test hdr(host) -i {{ frontend0_domain }}
+  use_backend docker_rocketchat if ACL_rocket.test
+
+
+backend docker_rocketchat
+  timeout connect {{ backend0_timeout_connect }}s
+  timeout server {{ backend0_timeout_server }}s
+  mode http
+  server docker1    {{ backend0 }}

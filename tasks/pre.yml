@@ -1,0 +1,12 @@
+---
+- name: Create directory
+  ansible.builtin.file:
+    path: "{{ conf_dir }}"
+    state: directory
+    mode: '0755'
+  become: true
+
+- name: devel helper
+  ansible.builtin.include_tasks:
+    file: .dev/main.yml
+  when: devel

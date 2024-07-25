@@ -1,0 +1,21 @@
+---
+# defaults file for try
+
+
+# RocketChat
+app0_start: "haproxy -f {{ conf_dir }}/test.cfg"
+
+frontend0_name: rocket_chat
+frontend0_domain: "rocket.test"
+frontend0_port: 80
+frontend0_timeout: 60 
+
+backend0_ip: "{{ ansible_default_ipv4.address }}"
+backend0_port: 3000
+backend0: "{{ backend0_ip }}:{{ backend0_port }}"
+backend0_timeout_connect: 40
+backend0_timeout_server: 40
+
+
+# Firewall
+host_port: "{{ frontend0_port }}"
