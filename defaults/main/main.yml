@@ -1,3 +1,4 @@
 devel: true
 
-conf_dir: "{{ dev_config_path }}"
+# conf_dir: "{{ dev_config_path }}"
+conf_dir: "{{ default_confd_dir }}"

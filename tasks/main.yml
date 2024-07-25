@@ -12,4 +12,4 @@
     force: yes
   become: true
   loop:
-  - rocketchat-haproxy.cfg
+  - "{{ app0_config_name }}"

@@ -3,7 +3,8 @@
 
 
 # RocketChat
-app0_start: "haproxy -f {{ conf_dir }}/test.cfg"
+app0_config_name: "rocketchat-haproxy.cfg"
+app0_start: "haproxy -f {{ conf_dir }}/{{ app0_config_name }}"
 
 frontend0_name: rocket_chat_docker
 frontend0_domain: "rocket.test"
