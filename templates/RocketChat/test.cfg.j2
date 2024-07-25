@@ -1,3 +1,6 @@
+global
+  daemon
+
 frontend {{ frontend0_name }}
   bind :{{ frontend0_port }}
   timeout client {{ frontend0_timeout }}s
