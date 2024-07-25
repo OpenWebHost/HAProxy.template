@@ -1,0 +1,13 @@
+---
+
+- name: Template Haproxy for manual start
+  ansible.builtin.template:
+    src: "{{ app0_template_dir }}/manual_start/{{ item }}.j2"
+    dest: "{{ conf_dir }}/{{ item }}"
+    owner: bin
+    group: wheel
+    mode: '0644'
+    force: yes
+  become: true
+  loop:
+  - "{{ app0_config_name }}"

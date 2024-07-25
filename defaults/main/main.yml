@@ -2,3 +2,10 @@ devel: true
 
 # conf_dir: "{{ dev_config_path }}"
 conf_dir: "{{ default_confd_dir }}"
+
+# use systemd or haproxy -f to start
+startup: "systemd"
+
+# Configure Systemd master, workers, or both
+systemd_cfg_master: true
+systemd_cfg_worker: false

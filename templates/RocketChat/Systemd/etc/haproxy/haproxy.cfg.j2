@@ -30,22 +30,22 @@ defaults
     retries                 3
     timeout http-request    10s
     timeout queue           1m
-    timeout connect         10s
-    timeout client          1m
-    timeout server          1m
+    timeout connect         {{ backend0_timeout_connect }}
+    timeout client          {{ frontend0_timeout }}
+    timeout server          {{ backend0_timeout_server }}
     timeout http-keep-alive 10s
     timeout check           10s
     maxconn                 3000
 
 
-frontend rocket_chat_docker
-  bind :80
+frontend {{ frontend0_name }}
+  bind :{{ frontend0_port }}
   mode http
 
-  acl ACL_rocket.test hdr(host) -i rocket.test
+  acl ACL_rocket.test hdr(host) -i {{ frontend0_domain }}
   use_backend docker_rocketchat if ACL_rocket.test
 
 
 backend docker_rocketchat
   mode http
-  server docker1    192.168.122.202:3000
+  server docker1    {{ backend0 }}

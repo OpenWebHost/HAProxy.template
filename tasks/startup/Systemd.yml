@@ -1,0 +1,29 @@
+---
+
+- name: Template master Haproxy for Systemd
+  ansible.builtin.template:
+    src: "{{ app0_template_dir }}/Systemd/etc/haproxy/{{ item }}.j2"
+    dest: "{{ default_conf_dir }}/{{ item }}"
+    owner: bin
+    group: wheel
+    mode: '0644'
+    force: yes
+  become: true
+  loop:
+  - haproxy.cfg
+  when: systemd_cfg_master
+  notify: Reload Haproxy service
+
+- name: Template worker Haproxy for Systemd
+  ansible.builtin.template:
+    src: "{{ app0_template_dir }}/Systemd/etc/haproxy/{{ item }}.j2"
+    dest: "{{ default_confd_dir }}/{{ item }}"
+    owner: bin
+    group: wheel
+    mode: '0644'
+    force: yes
+  become: true
+  loop:
+  - "{{ app0_config_name }}"
+  when: systemd_cfg_worker
+  notify: Reload Haproxy service

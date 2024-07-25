@@ -3,19 +3,22 @@
 
 
 # RocketChat
-app0_config_name: "rocketchat-haproxy.cfg"
+app0_template_dir: "RocketChat"
+app0_config_name: "rocketchat.cfg"
 app0_start: "haproxy -f {{ conf_dir }}/{{ app0_config_name }}"
 
 frontend0_name: rocket_chat_docker
 frontend0_domain: "rocket.test"
 frontend0_port: 80
-frontend0_timeout: 60 
 
 backend0_ip: "{{ ansible_default_ipv4.address }}"
 backend0_port: 3000
 backend0: "{{ backend0_ip }}:{{ backend0_port }}"
-backend0_timeout_connect: 40
-backend0_timeout_server: 40
+
+# Timeout
+frontend0_timeout: 1m
+backend0_timeout_connect: 10s
+backend0_timeout_server: 1m
 
 
 # Firewall
