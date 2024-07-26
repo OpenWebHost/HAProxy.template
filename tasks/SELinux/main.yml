@@ -1,0 +1,12 @@
+---
+# Only required if using Systemd to start HAProxy
+# ansible_os_family: RedHat
+# Fix from: https://serverfault.com/questions/654599/weird-interaction-with-systemctl-with-haproxy-on-centos-7/654684#654684 
+
+- name: add backend port to SELinux
+  community.general.seport:
+    ports: "{{ backend0_port }}"
+    proto: tcp
+    setype: http_port_t
+    state: present
+  become: true

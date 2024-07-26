@@ -9,3 +9,6 @@
 - ansible.builtin.include_tasks:
     file: startup/Systemd.yml
   when: startup == "systemd"
+
+- name: OS specific
+  include_tasks: os:/main.yml

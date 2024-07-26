@@ -1,0 +1,3 @@
+---
+- name: SELinux
+  include_tasks: SELinux/main.yml

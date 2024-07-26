@@ -1,0 +1,9 @@
+---
+roles:
+  - name: geerlingguy.docker
+  - name: UniInc.Docker
+  - name: UniInc.Firewall-open-port
+  - name: UniInc.HAProxy
+  - name: UniInc.HAProxy-Syslog
+  - name: UniInc.RocketChat
+  - name: UniInc.RocketChat-HAProxy-template
