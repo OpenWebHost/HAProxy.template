@@ -50,3 +50,4 @@ galaxy_info:
 dependencies:
 - UniInc.Firewall-open-port
 - UniInc.HAProxy
+- UniInc.RocketChat-Docker
