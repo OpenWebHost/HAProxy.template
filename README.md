@@ -1,12 +1,17 @@
-HAProxy-template
+RocketChat Docker HAProxy-template
 =========
 
-Common HAProxy Configurations.
+HAProxy Configuration for a RocketChat in Docker!
+
+Currently only setup for Docker & HAProxy located on same node.
+
+Todo: make this work with Docker and HAProxy running on separate nodes.
 
 Requirements
 ------------
 
 UniInc.HAProxy
+UniInc.RocketChat-Docker
 
 Role Variables
 --------------
