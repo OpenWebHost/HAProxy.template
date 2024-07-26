@@ -16,7 +16,7 @@
 
 - name: Template worker Haproxy for Systemd
   ansible.builtin.template:
-    src: "{{ app0_template_dir }}/Systemd/etc/haproxy/{{ item }}.j2"
+    src: "{{ app0_template_dir }}/Systemd/etc/haproxy/conf.d/{{ item }}.j2"
     dest: "{{ default_confd_dir }}/{{ item }}"
     owner: bin
     group: wheel

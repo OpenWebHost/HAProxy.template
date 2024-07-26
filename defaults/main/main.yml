@@ -7,5 +7,5 @@ conf_dir: "{{ default_confd_dir }}"
 startup: "systemd"
 
 # Configure Systemd master, workers, or both
-systemd_cfg_master: true
-systemd_cfg_worker: false
+systemd_cfg_master: false
+systemd_cfg_worker: true

@@ -50,4 +50,3 @@ galaxy_info:
 dependencies:
 - UniInc.Firewall-open-port
 - UniInc.HAProxy
-- UniInc.HAProxy-Syslog

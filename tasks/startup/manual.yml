@@ -1,8 +1,9 @@
 ---
 
+# ToDo: Fix
 - name: Template Haproxy for manual start
   ansible.builtin.template:
-    src: "{{ app0_template_dir }}/manual_start/{{ item }}.j2"
+    src: "{{ app0_template_dir }}/Systemd/etc/haproxy/conf.d/{{ item }}.j2"
     dest: "{{ conf_dir }}/{{ item }}"
     owner: bin
     group: wheel
