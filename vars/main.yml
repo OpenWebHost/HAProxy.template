@@ -6,3 +6,6 @@ default_conf_dir: /etc/haproxy
 default_confd_dir: /etc/haproxy/conf.d
 
 dev_config_path: /opt/dev/haproxy
+
+# Todo
+docker_ip: "{{ ansible. }}"
